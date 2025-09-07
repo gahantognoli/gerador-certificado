@@ -1,3 +1,7 @@
-<button class="custom-button">
-  Botão Primário
+<button
+  class="custom-button"
+  [ngStyle]="disabled ? { opacity: '0.5', 'pointer-events': 'none' } : {}"
+  [disabled]="disabled"
+>
+  {{ textoBotao }}
 </button>
