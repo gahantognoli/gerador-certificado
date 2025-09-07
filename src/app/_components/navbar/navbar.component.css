@@ -12,6 +12,19 @@
   color: #3B5AC2;
 }
 
+.nav-link {
+  padding: 6px !important;
+}
+
 .nav-link.active {
   color: #3B5AC2;
+  font-weight: 600;
+}
+
+.nav-item {
+  cursor: pointer;
+}
+
+.nav-item i {
+  font-size: 20px;
 }
