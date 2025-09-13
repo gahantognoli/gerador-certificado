@@ -6,37 +6,46 @@
       <i class="ph ph-arrow-left"></i>
       <p class="m-0">Voltar</p>
     </div>
-    <app-secondary-button></app-secondary-button>
+    <app-secondary-button
+      phClass="ph ph-download-simple"
+      textoBotao="Download"
+      (click)="downloadCertificado()"
+    ></app-secondary-button>
   </div>
 
-  <div class="certificado d-flex justify-content-center align-items-center">
+  @if(certificado){
+  <div
+    #certificadoContainer
+    class="certificado d-flex justify-content-center align-items-center"
+  >
     <img
       src="certificate/certificate_ribbon.png"
       class="icone-medalha"
       alt="Ícone de Medalha"
     />
     <div class="conteudo-certificado">
-      <img class="img-assinatura" src="certificate/certificate_signature.svg" alt="Imagem de assinatura" />
+      <img
+        class="img-assinatura"
+        src="certificate/certificate_signature.svg"
+        alt="Imagem de assinatura"
+      />
       <div class="info-certificado d-flex flex-column align-items-center">
         <div class="titulo-subtitulo-certificado">
           <h1>CERTIFICADO DE CONCLUSÃO</h1>
           <p>Este certificado comprova que</p>
         </div>
-        <p class="nome-aluno">Gabriel Antognoli</p>
-        <div class="lista-atividade-group ">
+        <p class="nome-aluno">{{ certificado.nome }}</p>
+        <div class="lista-atividade-group">
           <p class="lista-atividade-titulo">
             concluiu com sucesso as seguintes atividades:
           </p>
           <p class="lista-atividade">
-            Introdução ao Angular, Configuração do Angular CLI, Criação de
-            componentes, Manipulação de dados, Implementação de data binding,
-            Criação de rotas com Angular Router, Consumo de APIs REST,
-            Gerenciamento de estado com NgRx, Testes unitários e de integração,
-            Otimização de desempenho e melhores práticas.
+            {{ certificado.atividades.join(", ") }}
           </p>
         </div>
       </div>
-      <p class="data-emissao">Emitido em 01/01/2023</p>
+      <p class="data-emissao">Emitido em {{ certificado.dataEmissao }}</p>
     </div>
   </div>
+  }
 </div>
